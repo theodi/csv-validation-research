@@ -32,15 +32,67 @@ The data provides a reasonable starting point for exploring validation as it inc
 
 ## The Schemas
 
-* `schema.ini` -- Ini file format supported by Microsoft Jet, ODBC drivers, etc. See this [MSDN article](http://msdn.microsoft.com/en-us/library/ms709353(v=vs.85).aspx ) for reference
-* `chkcsv.fmt` -- Format descriptor supported by [chkcsv.py](http://pythonhosted.org/chkcsv/)
-* `csv-validator-schema.txt` -- Custom text format supported by [csv-validator tool and library](https://github.com/digital-preservation/csv-validator)
-* `datapackage.json` -- JSON [Data Package descriptor](http://dataprotocols.org/data-packages/) that follows principles of [Simple Data Format](http://dataprotocols.org/simple-data-format/). CSV file is described using [JSON Table Schema](http://dataprotocols.org/json-table-schema/) and [CSV Dialect Description Format](http://dataprotocols.org/csv-dialect/).
+### chkcsv.fmt
+ 
+An ini file format, this time supported by the Python [chkcsv.py](https://pypi.python.org/pypi/chkcsv) library. Read the [package documentation](http://pythonhosted.org/chkcsv/) for notes on the file format.
 
-## Misc Notes
+To install and use the tool, download and unzip the `chkcsv.py` package then:
 
-* The Land Registry data uses a date format that isn't supported by either chkcsv.py or csv-validator. This may be down to a bug in the former, but the latter only uses XML Schema data types
-* csv-validator doesn't support column names with spaces or other characters, requiring use of column positions
-* Only csv-validator and chkcsv.py are able to fully validate the files, largely by use of regular expressions. None of the others support other validation rules.
+    sudo python setup.py install
+    
+To use the installed tool:
+
+    chkcsv.py -f chkcsv.fmt lr-pp-nov-2013.csv
+
+The schema allows description of:
+
+* required fields, e.g. the identifier, price
+* formats of specific fields, e.g. structure of the GUID, postcodes and the single letter codes
+* number validation
+
+However it couldn't deal with the date format, so this is validated with a regex.
+
+### schema.ini
+
+Another ini file format, `schema.ini` can be used by the Microsoft Jet database, ODBC drivers, etc. See this [MSDN article](http://msdn.microsoft.com/en-us/library/ms709353(v=vs.85).aspx ) for reference.
+
+This schema only includes:
+
+* Basic type information
+* Checking of length of columns
+* Mapping of dates using custom format
+
+### csv-validator-schema
+
+`csv-validator-schema.txt` is a custom text format supported by the [csv-validator tool and library](https://github.com/digital-preservation/csv-validator) produced by the UK National Archives.
+
+To install the tool (make sure you have Java and Maven installed):
+
+    git clone https://github.com/digital-preservation/csv-validator
+    cd csv-validator
+    mvn package    
+    #create symlink to script
+    ln -s `pwd`/csv-validator-cmd/target/csv-validator-cmd-1.0-SNAPSHOT-application/csv-validator-cmd-1.0-SNAPSHOT/bin/validate ~/bin/csv-validator
+
+Then from this project directory:
+
+    csv-validator lr-pp-nov-2013.csv csv-validator-schema.txt
+
+The schema is able to:
+
+* validate that `ID` is unique
+* validate formats of the majority of fields using regexs
+
+However as the tool only uses XML Schema date types, it can't deal with the custom date format. The schema also has to use numeric column references in some cases as it doesn't support field names with spaces and slashes.
+
+### datapackage.json
+
+The [Simple Data Format](http://dataprotocols.org/simple-data-format/) specification describes the use of a [Data Package descriptor](http://dataprotocols.org/data-packages/) to describe one or more CSV files using a combination ofthe [CSV Dialect Description Format](http://dataprotocols.org/csv-dialect/) and [JSON Table Schema](http://dataprotocols.org/json-table-schema/).
+
+`datapackage.json` is an example of using those formats to describe the CSV file in this project. The schema is able to:
+
+* capture basic types of columns, e.g. text, number, date
+* describe format of date (although formatting is under-specified: its not clear what format strings are legal)
+* provide some additional documentation about each field
 
 
