@@ -1,3 +1,5 @@
+# CSV Validation Research
+
 This repository contains some sample files that show how different tools and data formats can be used to support the validation and description of CSV files.
 
 Currently the repository contains a single example CSV file and several "schemas" in different formats. The intention is to show how the tools and formats vary in terms of their expressivity, feature set, etc.
@@ -69,7 +71,7 @@ This schema only includes:
 * Checking of length of columns
 * Mapping of dates using custom format
 
-### csv-validator-schema
+### csv-validator-schema.txt
 
 `csv-validator-schema.txt` is a custom text format supported by the [csv-validator tool and library](https://github.com/digital-preservation/csv-validator) produced by the UK National Archives.
 
