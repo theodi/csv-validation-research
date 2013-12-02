@@ -1,0 +1,105 @@
+{
+    "name": "CSV Validation Example",
+    "resources": [
+    {
+        "name": "Land Registry Example Data",
+        "path": "lr-pp-nov-2013.csv",
+        "format": "csv",
+        "mediatype": "text/csv",
+        "encoding": "UTF-8",
+        "dialect": {
+            "delimiter": ",",
+            "lineterminator": "\r\n",
+            "quotechar": "\""
+        },
+        "schema": {
+            "fields": [
+                {
+                  "name": "ID",
+                  "title": "Transaction unique identifier",
+                  "description": "A reference number which is generated automatically recording each published sale. The number is unique and will change each time a sale is recorded",
+                  "type": "string"
+                },
+                {
+                  "name": "Price",
+                  "title": "Price",
+                  "description": "Sale price stated on the Transfer deed",
+                  "type": "integer"
+                },
+                {
+                  "name": "Date of Transfer",
+                  "title": "Date of Transfer",
+                  "description": "Date when the sale was completed, as stated on the Transfer deed",
+                  "type": "datetime",
+                  "format": "YYYY-MM-DD hh:mm"
+                },
+                {
+                  "name": "Postcode",
+                  "title": "Postcode",
+                  "type": "string"
+                },
+                {
+                  "name": "Property Type",
+                  "title": "D-Detached, S-Semi-Detached, T-Terraced, F-Flats/Maisonettes",
+                  "type": "string"
+                },
+                {
+                  "name": "Old/New",
+                  "title": "Old/New",
+                  "description": "Y = a newly built property, N =  an established residential building",
+                  "type": "string"
+                },
+                {
+                  "name": "Duration",
+                  "title": "Duration",
+                  "description": "Relates to the tenure. F-Freehold, L-Leasehold etc",
+                  "type": "string"
+                },
+                {
+                  "name": "PAON",
+                  "title": "Primary Addressable Object Name",
+                  "description": "Primary Addressable Object Name. If there is a sub-building for example the building is divided into flats, see Secondary Addressable Object Name (SAON)",
+                  "type": "string"
+                },
+                {
+                  "name": "SAON",
+                  "title": "Secondary Addressable Object Name",
+                  "description": "Secondary Addressable Object Name. If there is a sub-building, for example the building is divided into flats, there will be a SAON",
+                  "type": "string"
+                },
+                {
+                  "name": "Street",
+                  "title": "Street",
+                  "type": "string"
+                },
+                {
+                  "name": "Locality",
+                  "title": "Locality",
+                  "type": "string"
+                },
+                {
+                  "name": "Town/City",
+                  "title": "Town/City",
+                  "type": "string"
+                },
+                {
+                  "name": "Local Authority",
+                  "title": "Local Authority",
+                  "type": "string"
+                },
+                {
+                  "name": "County",
+                  "title": "County",
+                  "type": "string"
+                },
+                {
+                  "name": "Record Status",
+                  "title": "Record Status",
+                  "description": "Indicates additions, changes and deletions to the records",
+                  "type": "string"
+                }
+            ]
+        }
+    }
+    ]
+}

@@ -1,0 +1,63 @@
+[ID]
+data_required=True
+type=string
+minlen=38
+maxlen=38
+pattern=\{[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\}
+
+[Price]
+data_required=True
+type=integer
+
+[Date of Transfer]
+data_required=True
+type=string
+pattern=[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}
+
+[Postcode]
+data_required=True
+type=string
+pattern=[A-Z]{1,2}[0-9][0-9A-Z]? ?[0-9][A-Z]{2}
+
+[Property Type] 
+data_required=True
+type=string
+pattern=(D|S|T|F)
+
+[Old/New] 
+data_required=True
+type=string
+pattern=(Y|N)
+
+[Duration]
+data_required=True
+type=string
+pattern=(F|L)
+
+[PAON]
+data_required=False
+
+[SAON]
+data_required=False
+
+[Street]
+data_required=False
+
+[Locality]
+data_required=False
+
+[Town/City]
+data_required=True
+
+[Local Authority]
+data_required=True
+
+[County]
+data_required=True
+
+[Record Status]
+data_required=True
+type=string
+pattern=(A|C|D)
+
+

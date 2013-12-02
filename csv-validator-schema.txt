@@ -1,0 +1,26 @@
+version 1.0
+@totalColumns   15
+//below not yet supported?
+//@quoted
+//@separator ','
+
+ID: unique length(38)
+Price: positiveInteger
+/* 
+   Following reference has to use column number here as tool has restrictions on column names.
+
+   Due to limitations in expressing dates, have to use regex
+*/
+2: regex("[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}")
+Postcode: regex("[A-Z]{1,2}[0-9][0-9A-Z]? ?[0-9][A-Z]{2}")
+4: regex("(D|S|T|F)")
+5: regex("(Y|N)")
+Duration: regex("(F|L)")
+PAON: @optional
+SAON: @optional
+Street: @optional
+Locality: @optional
+11: @optional
+12:
+County:
+14: regex("(A|C|D)")
