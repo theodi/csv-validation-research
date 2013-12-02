@@ -1,6 +1,13 @@
-This repo contains some sample files that show how different tools and data formats can be used to support the validation and description of CSV files.
+This repository contains some sample files that show how different tools and data formats can be used to support the validation and description of CSV files.
 
 Currently the repository contains a single example CSV file and several "schemas" in different formats. The intention is to show how the tools and formats vary in terms of their expressivity, feature set, etc.
+
+The work builds on some previous research:
+
+* [CSV Validation and Description - a Review](https://docs.google.com/document/d/1TDMWM8VGq3UdZ9gNSg_E7lLrFdD4mAOD803CaUR5KTA/edit?usp=sharing) -- summarises some research into approaches for describing and validating CSV files. The review looks at: how metadata is associated with files and what type of metadata is provided.
+* [CSV Validation Survey](https://docs.google.com/spreadsheet/ccc?key=0AiswT8ko8hb4dEtOR0x1WkJ3LS1LSm1HQm1YQzZuSHc&usp=sharing) -- provides a comparison of the features of various tools and formats for describing CSV files. The feature chart uses the categories from the review document.
+
+Creating sample schemas for some of the tools provides a little more insight into how they fare at describing some real-world data.
 
 ## The Data
 
